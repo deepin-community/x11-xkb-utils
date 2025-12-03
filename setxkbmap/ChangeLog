@@ -1,3 +1,129 @@
+commit 094d979324efca8bbb2ad3756ee947c2d2b41a79
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon May 15 11:55:03 2023 +1000
+
+    setxkbmap 1.3.4
+
+commit 2d3ed3d74cdd4ef6dcf503162a72243ce7a96fb0
+Author: Olivier Fourdan <ofourdan@redhat.com>
+Date:   Tue May 9 09:33:36 2023 +0200
+
+    Check for the XWAYLAND extension
+    
+    With Xwayland 23.1 and above, the definitive way of checking for an
+    Xwayland server is to check for the "XWAYLAND" extension.
+    
+    Keep the old XRandR method for compatibility with older versions of
+    Xwayland.
+    
+    Signed-off-by: Olivier Fourdan <ofourdan@redhat.com>
+
+commit 9fa24c7ca57665f15dcd1cbe02208bd727e507f7
+Author: Olivier Fourdan <ofourdan@redhat.com>
+Date:   Tue May 9 09:23:26 2023 +0200
+
+    Fix "Xwayland" spelling
+    
+    It's Xwayland, not XWayland.
+    
+    Signed-off-by: Olivier Fourdan <ofourdan@redhat.com>
+
+commit 32fa355d4d3b9945d02acc776a57feb17c2bcc50
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Nov 16 11:47:40 2022 +1000
+
+    Route the Xwayland warning through stderr
+    
+    Otherwise we cannot pipe setxkmap -print into anything
+
+commit dbde2b209b70d9cdc8a66e3cc73e2d28a8e13797
+Author: Julien Cristau <jcristau@debian.org>
+Date:   Mon Apr 25 15:41:26 2022 +0200
+
+    Be more careful about querying randr
+    
+    Check for extension version and number of outputs:
+    XRRGetScreenResourcesCurrent was added in v1.3.  Also, there's no
+    guarantee it returns any outputs, and we don't want to die with a
+    BadRROutput error.
+
+commit 818582b435bc1807b87e547e53c488986286ff1f
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Apr 25 09:12:16 2022 -0700
+
+    gitlab CI: stop requiring Signed-off-by in commits
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit ac1a150bb7c6af8377074e946f1ca6233a345ac9
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Apr 3 13:42:22 2022 -0700
+
+    setxkbmap 1.3.3
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit a58fa93183d63a68ebcadbd666996b561e2e48b3
+Author: Walter Harms <wharms@bfs.de>
+Date:   Fri Dec 31 16:02:54 2021 +0100
+
+    make functions static
+    
+    It is good practise to make functions static
+    to prevent export by accident
+    
+    Signed-off-by: Walter Harms <wharms@bfs.de>
+
+commit bebb48fde0e634c1e45e00714b27c84a8da8220a
+Author: Walter Harms <wharms@bfs.de>
+Date:   Fri Dec 31 16:01:03 2021 +0100
+
+    fix exit status
+    
+    the status of exit() is actually status & 0377
+    change status value to return as intended
+    
+    Signed-off-by: Walter Harms <wharms@bfs.de>
+
+commit 6ae13951f86f7117d354c1ac10bde54061c3b89d
+Author: Walter Harms <wharms@bfs.de>
+Date:   Fri Dec 31 15:47:18 2021 +0100
+
+    fix: warning: assignment discards ‘const’ qualifier from pointer target type
+    
+    fix: warning: assignment discards ‘const’ qualifier from pointer target type
+    make warning go away with casting
+    
+    Signed-off-by: Walter Harms <wharms@bfs.de>
+
+commit 8872561b38049dbe34d4dd6903d16b0ef2c9e46d
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 4 09:54:22 2021 -0800
+
+    Build xz tarballs instead of bzip2
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit fc079170f533b3b3a0002b61957b60641aa1b54a
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 4 09:54:12 2021 -0800
+
+    gitlab CI: add a basic build test
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 13d1e26d696c5113a20dfc2f56c03ddb837a2eac
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Jul 12 09:46:25 2021 +1000
+
+    Check for Xwayland and print a warning
+    
+    Running setxkbmap isn't supported by Xwayland, so let's warn the user that
+    this won't work.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Acked-by: Olivier Fourdan <ofourdan@redhat.com>
+
 commit e03ecc3e00b411108449923cf006251b54f91c26
 Author: Alan Coopersmith <alan.coopersmith@oracle.com>
 Date:   Sun Jul 14 11:10:40 2019 -0700
