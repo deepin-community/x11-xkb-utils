@@ -1,3 +1,197 @@
+commit 29396321dad13c4edddc8d3a8de2baf07b0e0c8d
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Feb 3 12:36:36 2024 -0800
+
+    xkbutils 1.0.6
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit e2ee9c21f0d6341e664688f30ed9cd4f49b8ab6f
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Jan 18 17:47:15 2024 -0800
+
+    Change sprintf calls to use snprintf instead
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit aa03a3b7f00c9b3697fc5c33b1febf38247450a3
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Jan 18 17:19:18 2024 -0800
+
+    Remove uSetErrorFile()
+    
+    It was only ever called with an argument of NullString, which set the
+    errorFile to stderr, so we'll just do that at compile time instead.
+    
+    Also removes NullString, which was only ever used in uSetErrorFile.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 5f875c8a6bc12d47ad655ba820031bb917f321c0
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Tue Dec 5 15:01:42 2023 -0800
+
+    xkbwatch: Fix -Wincompatible-pointer-types warning (Issue #2)
+    
+    Fixes warning from gcc 13 that is becoming an error in gcc 14
+    
+    xkbwatch.c:92:34: warning: passing argument 7 of ‘XtOpenApplication’
+     from incompatible pointer type [-Wincompatible-pointer-types]
+       92 |                                  fallback_resources,
+          |                                  ^~~~~~~~~~~~~~~~~~
+          |                                  |
+          |                                  char **
+    In file included from xkbwatch.c:31:
+    .../X11/Intrinsic.h:1473:5: note: expected ‘const char **’ but
+     argument is of type ‘char **’
+     1473 |     String*             /* fallback_resources */,
+          |     ^~~~~~~
+    
+    Closes: #2
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 6dbcbb55951efb25af2e38034bdd86fa095aa9e5
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Feb 25 09:00:57 2023 -0800
+
+    Remove "All rights reserved" from Oracle copyright notices
+    
+    Oracle no longer includes this term in our copyright & license notices.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 56c99e3fcefc5552286fa9b9756dd798eb1eb6ce
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Jul 28 17:30:21 2022 -0700
+
+    gitlab CI: stop requiring Signed-off-by in commits
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 3a4570e0ee3ff46e3332a9938bb9e9a81b7148e9
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Tue Jul 12 10:27:28 2022 -0700
+
+    xkbutils 1.0.5
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 27c86946a7b300e38004757cb278ce455b855a0f
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Apr 3 16:17:23 2022 -0700
+
+    Use _CONST_X_STRING to make libXt declare String as const char *
+    
+    Clears 38 out of 58 -Wdiscarded-qualifiers warnings from gcc
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 4f379b97f0d9aaa88eb5a9e0e959d1444a232eca
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Dec 6 15:03:28 2021 -0800
+
+    Build xz tarballs instead of bzip2
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 8adb7b19f6a4deb04a553760fcb6ceaf50d93532
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Dec 6 15:03:26 2021 -0800
+
+    gitlab CI: add a basic build test
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 4cbced276815c1374332d0d3870d3c8aebb8083d
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Wed Nov 21 17:12:31 2018 -0800
+
+    Update configure.ac bug URL for gitlab migration
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 3d662f54c68da8bdaa363e8af8de38cb608bd5b4
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Fri Nov 16 22:29:36 2018 -0800
+
+    Update README for gitlab migration
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 50f3b38c217eccf1ff085ef7a8d053f3a894ad8e
+Author: Mihail Konev <k.mvc@ya.ru>
+Date:   Thu Jan 26 14:00:21 2017 +1000
+
+    autogen: add default patch prefix
+    
+    Signed-off-by: Mihail Konev <k.mvc@ya.ru>
+
+commit 284b5828c18628a9c4aa18c8d12f0202981762ec
+Author: Emil Velikov <emil.l.velikov@gmail.com>
+Date:   Mon Mar 9 12:00:52 2015 +0000
+
+    autogen.sh: use quoted string variables
+    
+    Place quotes around the $srcdir, $ORIGDIR and $0 variables to prevent
+    fall-outs, when they contain space.
+    
+    Signed-off-by: Emil Velikov <emil.l.velikov@gmail.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit f46e65957af5e7e6d781e7527a2f076b6653eff6
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Jan 24 10:32:07 2017 +1000
+
+    autogen.sh: use exec instead of waiting for configure to finish
+    
+    Syncs the invocation of configure with the one from the server.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Emil Velikov <emil.velikov@collabora.com>
+
+commit 5f6723766dbea9d739e922b048323fad6a97bf83
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat May 31 22:01:29 2014 -0700
+
+    autogen.sh: Honor NOCONFIGURE=1
+    
+    See http://people.gnome.org/~walters/docs/build-api.txt
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 1b2d387fd08349d6819f5672917e8f6fbcac8df9
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat May 31 22:00:45 2014 -0700
+
+    configure: Drop AM_MAINTAINER_MODE
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit e2106f716f1aa4dace42a160dfecbf72c643342a
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat May 31 21:59:02 2014 -0700
+
+    Remove unused uStrCasePrefix fallback for strncasecmp
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 05757e21b7b51d1f59137693f051b19742d28072
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 8 13:08:40 2013 -0800
+
+    XkbQueryExtension returns a Bool, don't use > 0 to check it
+    
+    We just want to know if XkbQueryExtension returned false, so ! is enough,
+    don't need > 0 as well.
+    
+    Reported by cppcheck:
+    [app/xkbutils/xkbbell.c:205]: (warning) Comparison of a boolean value
+     using relational operator (<, >, <= or >=).
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit 34efe0c4ec0d0e93e044448baabbdaa6d46e7415
 Author: Alan Coopersmith <alan.coopersmith@oracle.com>
 Date:   Sun Feb 10 15:46:54 2013 -0800

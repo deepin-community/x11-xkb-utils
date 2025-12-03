@@ -52,9 +52,6 @@ override_dh_auto_install:
 	install -d debian/tmp/usr/share/doc/x11-xkb-utils
 	install -m 644 xkbevd/example.cf debian/tmp/usr/share/doc/x11-xkb-utils/xkbevd-example.cf
 
-override_dh_missing:
-	dh_missing --fail-missing
-
 override_dh_auto_clean: $(addprefix clean-, $(SUBDIRS))
 	rm -rf $(STAMP_DIR)
 

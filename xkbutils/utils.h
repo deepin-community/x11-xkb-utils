@@ -55,7 +55,6 @@ typedef char Boolean;
 
 /***====================================================================***/
 
-extern Boolean uSetErrorFile(const char *name);
 extern void uInformation(const char *s, ...) _X_ATTRIBUTE_PRINTF(1,2);
 extern void uAction(const char *s, ...) _X_ATTRIBUTE_PRINTF(1,2);
 extern void uWarning(const char *s, ...) _X_ATTRIBUTE_PRINTF(1,2);
@@ -65,18 +64,12 @@ extern void uInternalError(const char *s, ...) _X_ATTRIBUTE_PRINTF(1,2);
 
 /***====================================================================***/
 
-#define	NullString	((char *)NULL)
-
 #define	uStrCaseEqual(s1,s2)	(uStrCaseCmp(s1,s2)==0)
 #ifdef HAVE_STRCASECMP
 #define	uStrCaseCmp(s1,s2)	(strcasecmp(s1,s2))
-#define	uStrCasePrefix(p,s)	(strncasecmp(p,s,strlen(p))==0)
 #else
 extern int uStrCaseCmp(const char *   /* s1 */,
                        const char *   /* s2 */);
-
-extern int uStrCasePrefix(const char * /* p */,
-                          const char * /* str */);
 #endif
 
 /***====================================================================***/
